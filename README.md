@@ -28,8 +28,8 @@ In STEP 4 we compared two different trained versions of the EoMT model (one pre-
 - **STEP4.ipynb** visualizes and qualitatively analyzes the predictions of both models on sample images from the Cityscapes validation set, comparing the semantic output on Cityscapes (19 classes) against the one on COCO (133 categories split into things and stuff), defining a consistent evaluation strategy to handle the mismatch between the class spaces ('coco_to_cityscapes_map' does the mapping between the classes in the two datasets). Also, it quantitatively evaluates the semantic segmentation performance of both model versions across the entire Cityscapes validation set. It computes per-pixel class scores by combining mask and class logits, ensuring an identical and fair evaluation pipeline for both models. Additionally, it visualizes the panoptic output for the COCO-trained model, using a picture from COCO dataset.
 
   
-- STEP5.ipynb
-- STEP5_semanticPlotCocoFT.ipynb
+- **STEP5.ipynb**  performs semantic inference on Cityscapes validation images using the fine-tuned model weights. It evaluates the overall semantic segmentation alignment and quantifies the global performance across classes (such as road, sidewalk, person, car, train, etc.), reporting final mean IoU global.
+- **STEP5_semanticPlotCocoFT.ipynb** plots a qualitative comparison showing the source image, the color map predicted by the model, using the same colors as the ground-truth imag, and the ground-truth target mask.
 
 In STEP 7 we evaluate the anomaly detection performance of the pre-trained ERFNet model on 5 distinct anomaly benchmarks, establishing the classic baseline for our study. Specifically, we extract pixel-level anomaly scores using three different scoring functions (MSP, Max Logit, and Max Entropy), and evaluate the results using AuPRC and FPR@TPR95 metrics.
 - **STEP7.ipynb** computes the anomaly maps and evaluates the baseline performance across 5 anomaly datasets. Additionally, it computes the mIoU score on the standard Cityscapes validation set to ensure that the pre-trained ERFNet model maintains high performance on In-Distribution semantic segmentation.
